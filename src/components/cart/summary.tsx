@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
@@ -30,23 +31,11 @@ const Summary = () => {
   }, 0);
 
   const onCheckout = async () => {
-    const productIds = items.map((item) => item.id);
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          productIds,
-        }),
-        cache: "no-store",
-      }
-    );
-    const data = await response.json();
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+      productIds : items.map((item) => item.id)
+    })
 
-    window.location = data.url;
+    window.location = response.data.url;
   };
 
   return (

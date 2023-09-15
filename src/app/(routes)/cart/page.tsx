@@ -3,7 +3,7 @@ import CartClient from "@/components/cart/cart-client";
 import Summary from "@/components/cart/summary";
 import Container from "@/components/ui/container";
 
-const CartPage = () => {
+const CartPage = async () => {
   return (
     <Container>
       <div className="px-4 py-16 sm:px-6 lg:px-8">

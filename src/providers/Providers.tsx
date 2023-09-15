@@ -1,22 +1,14 @@
-import React, { FC } from 'react'
-import { Toaster } from 'react-hot-toast'
-import ClientOnly from '@/components/ClientOnly'
-import PreviewModal from '@/components/preview-modal'
+import ClientOnly from "@/components/ClientOnly";
+import PreviewModal from "@/components/preview-modal";
+import ToasterProvider from "./ToasterProvider";
 
-interface ProvidersProps {
-  children : React.ReactNode
-}
-
-const Providers : FC<ProvidersProps> = ({children}) => {
+const Providers = () => {
   return (
-    <>
-      <ClientOnly>
-        <Toaster />
-        <PreviewModal />
-      </ClientOnly>
-      {children}
-    </>
-  )
-}
+    <ClientOnly>
+      <ToasterProvider />
+      <PreviewModal />
+    </ClientOnly>
+  );
+};
 
-export default Providers
+export default Providers;

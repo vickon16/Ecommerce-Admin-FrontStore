@@ -1,3 +1,5 @@
+
+
 interface CartItemInfoProps {
   product: Record<string, any>;
 }
